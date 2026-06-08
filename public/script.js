@@ -258,15 +258,70 @@ themeBtn.addEventListener("click",()=>{
     ){
 
         themeBtn.innerText =
-        "☀️ Light Mode";
+        "☀️";
 
     }
 
     else{
 
         themeBtn.innerText =
-        "🌙 Dark Mode";
+        "🌙";
 
     }
 
 });
+
+// Export CSV
+
+document
+.getElementById("exportBtn")
+.addEventListener("click", exportCSV);
+
+async function exportCSV(){
+
+    const res =
+    await fetch("/students");
+
+    const data =
+    await res.json();
+
+    if(data.length === 0){
+
+        alert("No Students Found");
+
+        return;
+
+    }
+
+    let csv =
+
+    "ID,Name,Email,Course\n";
+
+    data.forEach(student => {
+
+        csv +=
+
+        `${student.id},${student.name},${student.email},${student.course}\n`;
+
+    });
+
+    const blob =
+    new Blob([csv],{
+
+        type:"text/csv"
+
+    });
+
+    const url =
+    window.URL.createObjectURL(blob);
+
+    const a =
+    document.createElement("a");
+
+    a.href = url;
+
+    a.download = "students.csv";
+
+    a.click();
+
+}
