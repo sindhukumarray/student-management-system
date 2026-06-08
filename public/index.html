@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Student Management System</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>🎓 Student Management System</h1>
+
+        <p class="subtitle">
+            Manage student records efficiently
+        </p>
+
+        <p id="date"></p>
+
+        <!-- Dashboard Cards -->
+
+        <div class="stats">
+
+            <div class="card">
+                <h3>Total Students</h3>
+                <p id="totalStudents">0</p>
+            </div>
+
+            <div class="card">
+                <h3>Courses</h3>
+                <p>4</p>
+            </div>
+
+            <div class="card">
+                <h3>Status</h3>
+                <p>Active</p>
+            </div>
+
+        </div>
+
+        <!-- Form -->
+
+        <form id="studentForm">
+
+            <input
+                type="text"
+                id="name"
+                placeholder="Enter Student Name"
+                required
+            >
+
+            <input
+                type="email"
+                id="email"
+                placeholder="Enter Email"
+                required
+            >
+
+            <select id="course" required>
+
+                <option value="">
+                    Select Course
+                </option>
+
+                <option value="MCA">
+                    MCA
+                </option>
+
+                <option value="BCA">
+                    BCA
+                </option>
+
+                <option value="B.Tech">
+                    B.Tech
+                </option>
+
+                <option value="M.Tech">
+                    M.Tech
+                </option>
+
+            </select>
+
+            <button type="submit">
+                Add Student
+            </button>
+
+        </form>
+
+        <!-- Search -->
+
+        <input
+            type="text"
+            id="search"
+            placeholder="🔍 Search Student..."
+        >
+
+        <h2>Students List</h2>
+
+        <div id="studentList"></div>
+
+        <!-- Footer -->
+
+        <hr>
+
+        <p class="footer">
+            © 2026 Student Management System
+            <br>
+            Developed By Sindhu Kumar Ray
+        </p>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
