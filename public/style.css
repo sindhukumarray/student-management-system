@@ -18,13 +18,13 @@ body{
 
 .container{
     background:white;
+    color:#333;
+    backdrop-filter:blur(15px);
     width:90%;
-    max-width:900px;
-    padding:30px;
-    border-radius:20px;
-    box-shadow:0 10px 25px rgba(0,0,0,.2);
-    display:flex;
-    flex-direction:column;
+    max-width:1000px;
+    padding:35px;
+    border-radius:25px;
+    box-shadow:0 15px 35px rgba(0,0,0,.4);
 }
 
 /* Heading */
@@ -57,12 +57,13 @@ h1{
 
 .card{
     flex:1;
-    background:#667eea;
+    background:linear-gradient(135deg, #667eea, #764ba2 );
+
     color:white;
-    padding:15px;
-    border-radius:12px;
+    padding:20px;
+    border-radius:16px;
     text-align:center;
-    box-shadow:0 5px 15px rgba(0,0,0,.15);
+    transition:.3s;
 }
 
 .card h3{
@@ -73,6 +74,10 @@ h1{
 .card p{
     font-size:24px;
     font-weight:bold;
+}
+
+.card:hover{
+    transform:translateY(-5px);
 }
 
 /* Form */
@@ -86,6 +91,8 @@ form{
 
 input,
 select{
+    background:white;
+    color:black;
     width:100%;
     padding:12px;
     border:1px solid #ccc;
@@ -118,29 +125,38 @@ button[type="submit"]:hover{
     background:#5468d4;
 }
 
+button:hover{
+    transform:scale(1.02);
+}
+
 /* Search */
 
 #search{
-    margin:10px 0 20px;
+background:white;
+color:black;
+border:1px solid #ccc;
+}
+
+#search:focus{
+    border-color:#667eea;
 }
 
 /* Student Card */
 
 .student{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    gap:15px;
-    padding:15px;
-    margin-bottom:12px;
-    background:#f8f9ff;
-    border-radius:12px;
-    box-shadow:0 3px 8px rgba(0,0,0,.08);
-    transition:0.3s;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px;
+margin-bottom:12px;
+background:#f8f9fa;
+border-left:4px solid #667eea;
+border-radius:12px;
+box-shadow:0 3px 8px rgba(0,0,0,.08);
 }
 
 .student:hover{
-    transform:translateY(-3px);
+    transform:translateY(5px);
 }
 
 .btn-group{
@@ -168,9 +184,9 @@ button[type="submit"]:hover{
 
 .footer{
     text-align:center;
-    margin-top:20px;
-    color:#666;
-    font-size:14px;
+    color:#aaa;
+    margin-top:25px;
+    line-height:25px;
 }
 
 hr{
@@ -226,4 +242,52 @@ hr{
     background:white;
     border-radius:10px;
     margin-top:10px;
+}
+
+.theme-box{
+    display:flex;
+    justify-content:flex-end;
+    margin-bottom:15px;
+}
+
+#themeBtn{
+    background:#222;
+    color:white;
+    padding:10px 15px;
+}
+
+.dark-mode{
+    background:#121212;
+}
+
+.dark-mode .container{
+    background:#1f1f1f;
+    color:white;
+}
+
+.dark-mode h1,
+.dark-mode h2{
+    color:white;
+}
+
+.dark-mode .subtitle,
+.dark-mode .footer,
+.dark-mode #date{
+    color:#ccc;
+}
+
+.dark-mode input,
+.dark-mode select{
+    background:#2b2b2b;
+    color:white;
+    border:1px solid #555;
+}
+
+.dark-mode .student{
+    background:#2b2b2b;
+    color:white;
+}
+
+.dark-mode hr{
+    border-top:1px solid #444;
 }
