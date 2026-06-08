@@ -319,3 +319,49 @@ hr{
     border-top:1px solid #444;
 }
 
+.chart-container{
+    background:white;
+    padding:20px;
+    border-radius:15px;
+    margin:20px 0;
+    box-shadow:0 3px 10px rgba(0,0,0,.1);
+}
+
+.dark-mode .chart-container{
+    background:#2b2b2b;
+}
+
+#courseChart{
+
+    max-height:350px;
+
+}
+
+.dark-mode .chart-container{
+
+    background:#2b2b2b;
+
+}
+
+#exportBtn{
+    background:#28a745;
+    color:white;
+    border:none;
+    padding:12px 25px;
+    border-radius:30px;
+    font-weight:600;
+    cursor:pointer;
+    box-shadow:0 4px 10px rgba(0,0,0,0.15);
+    transition:0.3s;
+}
+
+#exportBtn:hover{
+    background:#218838;
+    transform:translateY(-2px);
+}
+
+.action-bar{
+    display:flex;
+    justify-content:center;
+    margin:15px 0;
+}

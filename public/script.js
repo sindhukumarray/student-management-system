@@ -2,6 +2,7 @@ const form = document.getElementById("studentForm");
 const list = document.getElementById("studentList");
 
 let editId = null;
+let chart = null;
 
 loadStudents();
 
@@ -112,6 +113,30 @@ async function loadStudents(){
 
     document.getElementById("totalStudents").innerText =
     data.length;
+
+    // Course Statistics
+
+const courseCounts = {};
+
+data.forEach(student => {
+
+    if(courseCounts[student.course]){
+
+        courseCounts[student.course]++;
+
+    }
+
+    else{
+
+        courseCounts[student.course] = 1;
+
+    }
+
+});
+
+// Render Chart
+
+renderChart(courseCounts);
 
      if(data.length === 0){
 
@@ -256,7 +281,7 @@ if(localStorage.getItem("theme") === "dark"){
     document.body.classList.add("dark-mode");
 
     themeBtn.innerText =
-    "☀️ Light Mode";
+    "☀️";
 
 }
 
@@ -346,5 +371,73 @@ async function exportCSV(){
     a.download = "students.csv";
 
     a.click();
+
+}
+
+// Course Distribution Chart
+
+function renderChart(courseCounts){
+
+    const chartCanvas =
+    document.getElementById("courseChart");
+
+    if(!chartCanvas) return;
+
+    const ctx =
+    chartCanvas.getContext("2d");
+
+    if(chart){
+
+        chart.destroy();
+
+    }
+
+    chart = new Chart(ctx,{
+
+        type:"pie",
+
+        data:{
+
+            labels:
+            Object.keys(courseCounts),
+
+            datasets:[{
+
+                label:"Students",
+
+                data:
+                Object.values(courseCounts),
+
+                backgroundColor:[
+
+                    "#667eea",
+                    "#764ba2",
+                    "#28a745",
+                    "#ff9800",
+                    "#dc3545"
+
+                ],
+
+                borderWidth:2
+
+            }]
+
+        },
+
+        options:{
+
+            responsive:true,
+
+            plugins:{
+
+                legend:{
+                    position:"bottom"
+                }
+
+            }
+
+        }
+
+    });
 
 }
