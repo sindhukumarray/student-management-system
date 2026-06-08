@@ -249,6 +249,19 @@ if(searchInput){
 const themeBtn =
 document.getElementById("themeBtn");
 
+// Check saved theme
+
+if(localStorage.getItem("theme") === "dark"){
+
+    document.body.classList.add("dark-mode");
+
+    themeBtn.innerText =
+    "☀️ Light Mode";
+
+}
+
+// Toggle Theme
+
 themeBtn.addEventListener("click",()=>{
 
     document.body.classList.toggle("dark-mode");
@@ -257,12 +270,22 @@ themeBtn.addEventListener("click",()=>{
         document.body.classList.contains("dark-mode")
     ){
 
+        localStorage.setItem(
+            "theme",
+            "dark"
+        );
+
         themeBtn.innerText =
         "☀️";
 
     }
 
     else{
+
+        localStorage.setItem(
+            "theme",
+            "light"
+        );
 
         themeBtn.innerText =
         "🌙";
